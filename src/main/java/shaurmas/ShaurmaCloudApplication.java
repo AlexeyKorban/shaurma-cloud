@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ShaurmaCoudApplication {
+public class ShaurmaCloudApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ShaurmaCoudApplication.class, args);
+		SpringApplication.run(ShaurmaCloudApplication.class, args);
 	}
 
 }

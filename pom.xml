@@ -9,9 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ru.ldwx</groupId>
-	<artifactId>shaurma-coud</artifactId>
+	<artifactId>shaurma-cloud</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>shaurma-coud</name>
+	<packaging>jar</packaging>
+
+	<name>shaurma-cloud</name>
 	<description>Shaurma Cloud Project</description>
 
 	<properties>
