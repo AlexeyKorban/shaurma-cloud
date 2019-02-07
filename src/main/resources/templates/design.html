@@ -11,20 +11,18 @@
 <h1>Design your shaurma!</h1>
 <img th:src="@{/images/shaurma.png}"/>
 
-<form method="POST" th:object="${design}">
+<form method="POST" th:object="${shaurma}">
 
     <span class="validationError"
           th:if="${#fields.hasErrors('ingredients')}"
           th:errors="*{ingredients}">Ingredient Error</span>
 
     <div class="grid">
-
         <div class="ingredient-group" id="wraps">
             <h3>Designate your wrap:</h3>
             <div th:each="ingredient : ${wrap}">
                 <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
-                <span th:text="${ingredient.name}">INGREDIENT</span>
-                <br/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
             </div>
         </div>
 
@@ -32,8 +30,7 @@
             <h3>Designate your protein:</h3>
             <div th:each="ingredient : ${protein}">
                 <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
-                <span th:text="${ingredient.name}">INGREDIENT</span>
-                <br/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
             </div>
         </div>
 
@@ -41,8 +38,7 @@
             <h3>Designate your cheese:</h3>
             <div th:each="ingredient : ${cheese}">
                 <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
-                <span th:text="${ingredient.name}">INGREDIENT</span>
-                <br/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
             </div>
         </div>
 
@@ -50,17 +46,15 @@
             <h3>Designate your veggies:</h3>
             <div th:each="ingredient : ${veggies}">
                 <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
-                <span th:text="${ingredient.name}">INGREDIENT</span>
-                <br/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
             </div>
         </div>
 
         <div class="ingredient-group" id="sauces">
             <h3>Designate your sauce:</h3>
             <div th:each="ingredient : ${sauce}">
-                <input name="ingredients" type="checkbox" th:value="${ingredient.id}">
-                <span th:text="${ingredient.name}">INGREDIENT</span>
-                <br/>
+                <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
             </div>
         </div>
     </div>
@@ -71,7 +65,9 @@
         <span class="validationError"
               th:if="${#fields.hasErrors('name')}"
               th:errors="*{name}">Name Error</span>
+
         <br/>
+
         <button>Submit your shaurma</button>
     </div>
 </form>

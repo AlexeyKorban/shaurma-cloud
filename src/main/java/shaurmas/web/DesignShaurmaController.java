@@ -5,14 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import shaurmas.Ingredient;
 import shaurmas.Ingredient.Type;
+import shaurmas.Order;
 import shaurmas.Shaurma;
 import shaurmas.repository.IngredientRepository;
+import shaurmas.repository.ShaurmaRepository;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -22,13 +21,27 @@ import java.util.stream.Collectors;
 @Slf4j
 @Controller
 @RequestMapping("/design")
+@SessionAttributes("order")
 public class DesignShaurmaController {
 
     private final IngredientRepository ingredientRepo;
 
+    private ShaurmaRepository designRepo;
+
     @Autowired
-    public DesignShaurmaController(IngredientRepository ingredientRepo) {
+    public DesignShaurmaController(IngredientRepository ingredientRepo, ShaurmaRepository designRepo) {
         this.ingredientRepo = ingredientRepo;
+        this.designRepo = designRepo;
+    }
+
+    @ModelAttribute(name = "order")
+    public Order order() {
+        return new Order();
+    }
+
+    @ModelAttribute(name = "shaurma")
+    public Shaurma shaurma() {
+        return new Shaurma();
     }
 
     @GetMapping
@@ -48,13 +61,14 @@ public class DesignShaurmaController {
     }
 
     @PostMapping
-    public String processDesign(@Valid
-                                @ModelAttribute("design")
-                                        Shaurma design, Errors errors) {
+    public String processDesign(@Valid Shaurma design, Errors errors,
+                                @ModelAttribute Order order) {
         if (errors.hasErrors()) {
             return "design";
         }
-        log.info("Processing design: " + "design");
+
+        Shaurma saved = designRepo.save(design);
+        order.addDesign(saved);
         return "redirect:/orders/current";
     }
 
