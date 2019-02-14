@@ -1,4 +1,4 @@
-package shaurmas.repository;
+package shaurmas.repository.jdbc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;

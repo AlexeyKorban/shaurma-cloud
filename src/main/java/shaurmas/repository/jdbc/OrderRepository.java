@@ -1,4 +1,4 @@
-package shaurmas.repository;
+package shaurmas.repository.jdbc;
 
 import shaurmas.Order;
 

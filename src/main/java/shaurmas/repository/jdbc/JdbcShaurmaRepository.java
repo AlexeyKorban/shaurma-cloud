@@ -1,4 +1,4 @@
-package shaurmas.repository;
+package shaurmas.repository.jdbc;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
