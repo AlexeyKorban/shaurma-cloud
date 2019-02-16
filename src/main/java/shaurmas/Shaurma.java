@@ -9,11 +9,8 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-@Entity
 public class Shaurma {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private Date createdAt;
@@ -23,7 +20,6 @@ public class Shaurma {
     private String name;
 
     @Size(min = 1, message = "You must choose at least 1 ingredient")
-    @ManyToMany(targetEntity = Ingredient.class)
     private List<Ingredient> ingredients;
 
     @PrePersist

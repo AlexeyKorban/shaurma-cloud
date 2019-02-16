@@ -13,14 +13,11 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-@Entity
-@Table(name="Shaurma_Order")
 public class Order implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Long id;
 
     private Date placedAt;

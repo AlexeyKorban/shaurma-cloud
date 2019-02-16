@@ -10,8 +10,8 @@ import shaurmas.Ingredient;
 import shaurmas.Ingredient.Type;
 import shaurmas.Order;
 import shaurmas.Shaurma;
-import shaurmas.repository.jdbc.IngredientRepository;
-import shaurmas.repository.jdbc.ShaurmaRepository;
+import shaurmas.repository.IngredientRepository;
+import shaurmas.repository.ShaurmaRepository;
 
 import javax.validation.Valid;
 import java.util.ArrayList;

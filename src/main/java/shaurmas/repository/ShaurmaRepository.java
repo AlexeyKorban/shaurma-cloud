@@ -1,4 +1,4 @@
-package shaurmas.repository.jdbc;
+package shaurmas.repository;
 
 import shaurmas.Shaurma;
 
